@@ -1,0 +1,17 @@
+.Header {
+    height: 8vh;
+    background: silver;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.auth {
+    width: fit-content;
+}
+
+.auth a {
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 18px;
+}

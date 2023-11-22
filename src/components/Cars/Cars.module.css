@@ -1,0 +1,30 @@
+.CarsComponent h2 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.CarFormComponent {
+}
+
+.CarForm {
+    display: flex;
+    padding: 20px;
+    column-gap: 10px;
+}
+
+.Cars {
+    padding: 20px;
+    display: flex;
+    flex-direction: column-reverse;
+    row-gap: 20px;
+}
+
+.Car > img {
+    width: 200px;
+}
+
+.btns {
+    display: flex;
+    width: fit-content;
+    column-gap: 10px;
+}
