@@ -5,12 +5,18 @@ const cars = '/cars';
 const users = '/users';
 
 const urls = {
-    login: auth,
-    refresh: `${auth}/refresh`,
-    register: users,
-    me: `${auth}/me`,
-    cars,
-    carsById: (id: number) => `${cars}/${id}`,
+    auth: {
+        login: auth,
+        refresh: `${auth}/refresh`,
+        register: users,
+        me: `${auth}/me`,
+    },
+    cars: {
+        cars,
+        carsById: (id: number) => `${cars}/${id}`,
+        carsPhoto: (id: number) => `${cars}/${id}/photo`,
+    },
+    image: (imgPath: string) => `http://owu.linkpc.net/${imgPath}`,
 };
 
 export {

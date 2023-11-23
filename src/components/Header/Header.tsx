@@ -1,10 +1,10 @@
 import React from 'react';
-import {NavLink} from "react-router-dom";
+import {NavLink} from 'react-router-dom';
 
 import css from './Header.module.css';
-import {useAppDispatch, useAppSelector} from "../../hooks";
-import {authService} from "../../services";
-import {authActions} from "../../redux";
+import {useAppDispatch, useAppSelector} from '../../hooks';
+import {authService} from '../../services';
+import {authActions} from '../../redux';
 
 const Header = () => {
     const {me} = useAppSelector(state => state.authReducer);
@@ -17,7 +17,10 @@ const Header = () => {
     return (
         <div className={css.Header}>
             {me ?
-                <div className={css.auth}>{me.username}</div>
+                <div className={css.auth}>
+                    <span>{me.username} - {new Date(me.last_login).toDateString()}</span>
+                    <NavLink to={'/login'}>LogOut</NavLink>
+                </div>
                 :
                 <div className={css.auth}>
                     <NavLink to={'/login'}>Login</NavLink>

@@ -13,5 +13,6 @@ export interface IUpdateCarData {
     brand?: string;
     year?: string;
     price?: string;
+    photo?: FormData;
 }
 

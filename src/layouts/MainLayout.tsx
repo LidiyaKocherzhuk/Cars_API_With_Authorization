@@ -1,8 +1,8 @@
 import React from 'react';
-import {Outlet} from "react-router-dom";
+import {Outlet} from 'react-router-dom';
 
 import css from './Layout.module.css';
-import {Header} from "../components";
+import {Header} from '../components';
 
 const MainLayout= () => {
     return (

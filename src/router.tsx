@@ -1,9 +1,8 @@
-import {createBrowserRouter, Navigate} from "react-router-dom";
-import React from "react";
+import {createBrowserRouter, Navigate} from 'react-router-dom';
+import React from 'react';
 
-import { MainLayout } from "./layouts";
-import {CarsPage, LoginPage, RegisterPage} from "./pages";
-import {Cars} from "./components";
+import { MainLayout } from './layouts';
+import {CarsPage, LoginPage, RegisterPage} from './pages';
 
 const router = createBrowserRouter([
     {

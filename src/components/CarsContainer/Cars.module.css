@@ -3,9 +3,6 @@
     margin-top: 20px;
 }
 
-.CarFormComponent {
-}
-
 .CarForm {
     display: flex;
     padding: 20px;
@@ -15,16 +12,32 @@
 .Cars {
     padding: 20px;
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     row-gap: 20px;
 }
 
 .Car > img {
     width: 200px;
+    cursor: pointer;
+}
+
+.Car input {
+    display: none;
 }
 
 .btns {
     display: flex;
     width: fit-content;
     column-gap: 10px;
+}
+
+.pagination {
+    display: flex;
+    margin: 20px 0 50px;
+    justify-content: center;
+    column-gap: 20px;
+}
+
+.pagination button {
+    width: fit-content;
 }

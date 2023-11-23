@@ -1,23 +1,31 @@
 import React from 'react';
-import {useForm, SubmitHandler} from "react-hook-form";
+import {useForm, SubmitHandler} from 'react-hook-form';
 
-import {IAuth} from "../interfaces";
-import {authService} from "../services";
+import css from './Pages.module.css';
+import {IAuth} from '../interfaces';
+import {useAppDispatch} from '../hooks';
+import {authActions} from '../redux';
+import {useNavigate} from 'react-router-dom';
 
 const RegisterPage = () => {
     const {register, handleSubmit} = useForm();
+    const dispatch = useAppDispatch();
+    const navigate = useNavigate();
 
     const registerUser: SubmitHandler<IAuth> = (userData) => {
-        // const data = await authService.register(userData);
-        // console.log(data);
+      dispatch(authActions.register({user: userData}));
+        navigate('/login');
     };
 
     return (
-        <form onSubmit={handleSubmit(registerUser)}>
-            <input type="text" placeholder={'username'} {...register('username')}/>
-            <input type="text" placeholder={'password'} {...register('password')}/>
-            <button>Register</button>
-        </form>
+        <div className={css.Auth}>
+            <h2>Register</h2>
+            <form onSubmit={handleSubmit(registerUser)}>
+                <input type='text' placeholder={'username'} {...register('username')}/>
+                <input type='text' placeholder={'password'} {...register('password')}/>
+                <button>Register</button>
+            </form>
+        </div>
     );
 };
 

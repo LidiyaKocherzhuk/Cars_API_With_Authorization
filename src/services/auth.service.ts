@@ -1,31 +1,26 @@
-import {IAuth, ITokens, IUser} from "../interfaces";
-import {apiService} from "./api.service";
-import {urls} from "../constants";
-import {IRes} from "../types";
-
-
-const accessTokenKey = 'access';
-const refreshTokenKey = 'refresh';
+import {IAuth, ITokens, IUser} from '../interfaces';
+import {apiService} from './api.service';
+import {urls} from '../constants';
+import {IRes} from '../types';
 
 const authService = {
-    register(userData: IAuth): IRes<any> {
-        return apiService.post(urls.register, userData).then();
+    async register(userData: IAuth): Promise<void> {
+        await apiService.post(urls.auth.register, userData).then();
     },
 
     async login(userData: IAuth): Promise<IUser> {
-        const {data} = await apiService.post<ITokens>(urls.login, userData).then();
+        const {data} = await apiService.post<ITokens>(urls.auth.login, userData).then();
         await this.setTokens({access: data.access, refresh: data.refresh});
         const {data: me} = await this.me();
         return me;
     },
 
     me(): IRes<IUser> {
-        return apiService.get(urls.me).then();
+        return apiService.get(urls.auth.me).then();
     },
 
     async refresh(refreshToken: string): Promise<ITokens> {
-        console.log(refreshToken);
-        const {data} = await apiService.post<ITokens>(urls.refresh, {refresh: refreshToken}).then();
+        const {data} = await apiService.post<ITokens>(urls.auth.refresh, {refresh: refreshToken}).then();
 
         this.setTokens({access: data.access, refresh: data.refresh});
         return data;
